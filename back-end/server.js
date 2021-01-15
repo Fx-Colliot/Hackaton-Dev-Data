@@ -58,6 +58,9 @@ app.post("/user", (req, res) => {
     anneesDeCode,
     salaireVise,
   } = req.body;
+  console.log("-------------------------");
+  console.log(salaireVise);
+  console.log("-------------------------");
   db.query(
     "INSERT INTO candidats(prenom, nom, email, password, technos, technoVisee,typeContrat, anneesDeCode, salaireVise, codePostal) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
     [
@@ -68,12 +71,13 @@ app.post("/user", (req, res) => {
       technos,
       "",
       typeContrat,
-      codePostal,
       anneesDeCode,
       salaireVise,
+      codePostal,
     ],
     (err, results) => {
       if (err) {
+        console.log(err);
         res.status(500).send("Error saving a new user");
       } else {
         res.status(200).send("New user saved!");
