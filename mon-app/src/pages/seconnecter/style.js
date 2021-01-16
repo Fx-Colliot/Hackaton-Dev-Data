@@ -41,6 +41,8 @@ export const FormContainer = styled.form`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-top: 40%;
+	margin-bottom: 60%;
 `;
 
 export const Label = styled.label`
