@@ -12,9 +12,14 @@ app.use(express.json());
     console.error("error connecting: " + err.stack);
     return;
   }
+// connection.connect(function (err) {
+// 	if (err) {
+// 		console.error("error connecting: " + err.stack);
+// 		return;
+// 	}
 
-  console.log("connected as id " + connection.threadId);
-});
+// 	console.log("connected as id " + connection.threadId);
+// });
 
 /*app.get("/:id", (req, res) => {
   connection.query(

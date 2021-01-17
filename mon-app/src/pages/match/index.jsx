@@ -1,18 +1,8 @@
-import React from "react";
+import { React, useState } from "react";
 import { BlockJobs, ContainerJobs, TitleJobs } from "./style";
-import jobs from "./jobs.json";
+import db from "./db.json";
 
 export default function Match() {
-  return jobs.map((job, i) => {
-    return (
-      <>
-        <BlockJobs>
-          <ContainerJobs>
-            <TitleJobs>{job.techno}</TitleJobs>
-            <p>{job.ville}</p>
-          </ContainerJobs>
-        </BlockJobs>
-      </>
-    );
-  });
+  let company = db;
+  return <TitleJobs> {company.companyName} </TitleJobs>;
 }

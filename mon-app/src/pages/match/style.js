@@ -19,9 +19,11 @@ export const ContainerJobs = styled.div`
   }
 `;
 
-export const TitleJobs = styled.h2`
+export const TitleJobs = styled.h1`
   @media ${Device.mobile} {
     text-align: center;
     font-size: 1.5rem;
+    margin-top: 200px;
+    color: black;
   }
 `;

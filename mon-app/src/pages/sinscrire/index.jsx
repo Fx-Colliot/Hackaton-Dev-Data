@@ -29,19 +29,7 @@ const Sinscrire = () => {
       .catch((err) => {
         console.log("Meh");
       });
-	};
-	const db = () => {
-  axios
-	 .get("http://localhost:5000")
-	 .then(function (response) {
-		 axios.get("http://localhost:5050/cards").then(function (response) {
-			 console.log(response.data);
-		 });
-	 })
-	 .catch(function (error) {
-		 console.log(error);
-	 });
-
+  };
 
   return (
     <div>
