@@ -7,6 +7,7 @@ let companysState = db; // Cela résout les problèmes de mise à jour de l'éta
 export default function CardCompany() {
   const [companys, setCompanys] = useState(db);
   const [lastDirection, setLastDirection] = useState();
+
   const childRefs = useMemo(
     () =>
       Array(db.length)
@@ -14,11 +15,13 @@ export default function CardCompany() {
         .map((i) => React.createRef()),
     []
   );
+
   const swiped = (direction, nameToDelete) => {
     setLastDirection(direction);
     console.log("Refusé: " + nameToDelete);
     alreadyRemoved.push(nameToDelete);
   };
+
   const outOfFrame = (companyName) => {
     console.log(companyName + "Vous avez postulé !");
     companysState = companysState.filter(
@@ -26,6 +29,7 @@ export default function CardCompany() {
     );
     setCompanys(companysState);
   };
+
   const swipe = (dir) => {
     const cardsLeft = companys.filter(
       (person) => !alreadyRemoved.includes(person.companyName)
@@ -37,6 +41,7 @@ export default function CardCompany() {
       childRefs[index].current.swipe(dir); // Swipe la card!
     }
   };
+
   return (
     <Container>
       <div className="cardContainer">
@@ -65,6 +70,7 @@ export default function CardCompany() {
           </TinderCard>
         ))}
       </div>
+
       <div className="bottom">
         <div className="buttons">
           <button onClick={() => swipe("left")}>Refuser</button>

@@ -11,9 +11,11 @@ export const Container = styled.div`
   height: auto;
   min-height: 100vh;
   overflow: hidden;
+
   .swipe {
     position: absolute;
   }
+
   .cardContainer {
     display: flex;
     flex-direction: column;
@@ -29,6 +31,7 @@ export const Container = styled.div`
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
   }
+
   .card {
     position: relative;
     background-color: #fff;
@@ -41,17 +44,21 @@ export const Container = styled.div`
     background-size: cover;
     background-position: center;
   }
+
   .cardContent {
     width: 100%;
     height: 100%;
   }
+
   .swipe:last-of-type {
   }
+
   .card h1 {
     bottom: 0;
     margin: 5px;
     color: #fd1470;
   }
+
   .description {
     position: relative;
     background-color: #fff;
@@ -64,31 +71,37 @@ export const Container = styled.div`
     background-size: cover;
     background-position: center;
   }
+
   .description p {
     text-align: justify;
     margin: 10px;
     overflow: hidden;
   }
+
   .description h2 {
     color: #a7a7a7;
     font-size: 1.5em;
     margin: 10px;
   }
+
   .description h3 {
     color: #b7b7b7;
     font-size: 1.2em;
     margin: 10px;
   }
+
   .bottom {
     position: fixed;
     bottom: 0;
     height: 15vh;
     background-color: rgba(200, 200, 200, 0.75);
   }
+
   .buttons {
     margin: 10px;
     display: flex;
   }
+
   .buttons button {
     flex-shrink: 0;
     padding: 10px;
@@ -103,9 +116,11 @@ export const Container = styled.div`
     width: 160px;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
   }
+
   .buttons button:hover {
     transform: scale(1.05);
   }
+
   .bottom h2 {
     width: 100%;
     justify-content: center;
@@ -114,6 +129,7 @@ export const Container = styled.div`
     animation-name: popup;
     animation-duration: 800ms;
   }
+
   @keyframes popup {
     0% {
       transform: scale(1, 1);
