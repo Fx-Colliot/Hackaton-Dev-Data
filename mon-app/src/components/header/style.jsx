@@ -5,14 +5,14 @@ export const Container = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #220bab;
-	height: 9vh;
-	width: 100%;
+	background-color: #00d9ff;
 	position: fixed;
 	top: 0;
+	height: 9vh;
+	width: 100%;
 	z-index: 2;
 
-	.match {
+	.matchIcon {
 		height: 7vh;
 		margin-left: 3vw;
 	}
@@ -20,7 +20,7 @@ export const Container = styled.div`
 	.logo {
 		height: 4vh;
 	}
-	.profile {
+	.profileIcon {
 		height: 7vh;
 		margin-right: 3vw;
 	}
