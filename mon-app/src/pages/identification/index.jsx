@@ -6,19 +6,18 @@ import {
 	Button,
 	FormContainer,
 	Label,
-	Text,
 } from "./style.jsx";
 import { useForm } from "react-hook-form";
 import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 
-const Connection = () => {
+const Identification = () => {
 	const { register, handleSubmit, errors } = useForm();
 	const [loggedIn, setDataSend] = useState(false);
 
 	const signup = (formData) => {
 		axios
-			.post("http://localhost:5050/profile", formData)
+			.post("http://localhost:5050/profil", formData)
 			.then(({ data }) => {
 				console.log("Profile created");
 				setDataSend(true);
@@ -34,7 +33,7 @@ const Connection = () => {
 				<Redirect to="/cards" />
 			) : (
 				<Container onSubmit={handleSubmit(signup)}>
-					<Title>MATCH DEV</Title>
+					<Title>IDENTIFICATION</Title>
 					<FormContainer>
 						<Label>Email</Label>
 						<input name="email" ref={register({ required: true })} />
@@ -48,11 +47,8 @@ const Connection = () => {
 							ref={register({ required: true })}
 						/>
 						{errors.password && <Mandatory>Minimun 8 caractères</Mandatory>}
-
-						<Button>CONNEXION</Button>
-						<Text>OU</Text>
-						<Link to="/registration">
-							<Button className="inscription">S'INSCRIRE</Button>
+						<Link to="/cards">
+							<Button>GO!</Button>
 						</Link>
 					</FormContainer>
 				</Container>
@@ -60,4 +56,4 @@ const Connection = () => {
 		</div>
 	);
 };
-export default Connection;
+export default Identification;

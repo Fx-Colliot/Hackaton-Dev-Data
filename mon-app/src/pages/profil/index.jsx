@@ -1,27 +1,17 @@
 import React, { useState, useEffect } from "react";
-import {
-	Page,
-	BlockProfil,
-	Title,
-	BlockP,
-	Sentence,
-	BlockDetails,
-	ContainerDetails,
-	DetailsH3,
-	DetailsForm,
-} from "./style";
+import { Container, Preferences, Informations } from "./style.jsx";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-export default function ProfilPage() {
-	const [profile, setProfile] = useState({});
-	const { prenom } = useParams();
+export default function Profil() {
+	const [profil, setProfil] = useState({});
+	const { prenom } = useParams("");
 	useEffect(() => {
 		axios
 			.get("http://localhost:5050/profil/" + prenom)
 			.then(function (response) {
 				console.log(response.data[0]);
-				setProfile(response.data[0]);
+				setProfil(response.data[0]);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -29,39 +19,25 @@ export default function ProfilPage() {
 	}, []);
 
 	return (
-		<>
-			<Page>
-				<BlockProfil>
-					<Title> Bonjour {profile.prenom}! Bon match!</Title>
-				</BlockProfil>
-				<BlockP>
-					<Sentence>Vérifiez vos informations...</Sentence>
-				</BlockP>
-				<BlockDetails>
-					<ContainerDetails>
-						<DetailsH3>Techno :</DetailsH3>
-						<DetailsForm> {profile.technos}</DetailsForm>
-					</ContainerDetails>
-					<ContainerDetails>
-						<DetailsH3>Contrat :</DetailsH3>
-						<DetailsForm>{profile.typeContrat}</DetailsForm>
-					</ContainerDetails>
-					<ContainerDetails>
-						<DetailsH3>Ville :</DetailsH3>
-						<DetailsForm>{profile.codePostal}</DetailsForm>
-					</ContainerDetails>
-
-					<ContainerDetails>
-						<DetailsH3>Année de code :</DetailsH3>
-						<DetailsForm>{profile.anneesDeCode}</DetailsForm>
-					</ContainerDetails>
-
-					<ContainerDetails>
-						<DetailsH3>email :</DetailsH3>
-						<DetailsForm>{profile.email}</DetailsForm>
-					</ContainerDetails>
-				</BlockDetails>
-			</Page>
-		</>
+		<Container>
+			<h2>Voici votre profil</h2>
+			<h2 className="name">{profil.prenom}</h2>
+			<p>Vos informations</p>
+			<Informations>
+				<h3>Email :</h3>
+				<p>{profil.email}</p>
+				<h3>Ville :</h3>
+				<p>{profil.codePostal}</p>
+				<h3>Expérience :</h3>
+				<p>{profil.anneesDeCode}</p>
+			</Informations>
+			<p>Vos préférencess</p>
+			<Preferences>
+				<h3>Contrat :</h3>
+				<p>{profil.typeContrat}</p>
+				<h3>Technos :</h3>
+				<p> {profil.technos}</p>
+			</Preferences>
+		</Container>
 	);
 }
