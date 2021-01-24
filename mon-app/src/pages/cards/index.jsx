@@ -11,6 +11,7 @@ export default function Cards() {
 			.get("http://localhost:5050/cards/")
 			.then(function (response) {
 				setCompanys(response.data);
+				console.log(companys);
 			})
 			.catch(function (error) {
 				console.log(error);
