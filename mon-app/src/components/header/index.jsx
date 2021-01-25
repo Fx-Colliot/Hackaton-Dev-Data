@@ -19,7 +19,7 @@ export default function Header() {
 					alt="Match Dev logo"
 				/>
 			</Link>
-			<Link to="/profil/Bob">
+			<Link to="/profile/:prenom">
 				<img
 					className="profileIcon"
 					src="/images/profile_user.svg"

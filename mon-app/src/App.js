@@ -7,7 +7,7 @@ import Identification from "./pages/identification/index";
 import Registration from "./pages/registration/index";
 import Cards from "./pages/cards/index";
 import Matchs from "./pages/matchs/index";
-import Profil from "./pages/profil/index";
+import UserProfile from "./pages/userProfile/index";
 import { AppStyle, HeaderStyle, MainStyle } from "./style.jsx";
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
 						<Route exact path="/registration" component={Registration} />
 						<Route exact path="/cards" component={Cards} />
 						<Route exact path="/matchs" component={Matchs} />
-						<Route exact path="/profil/:prenom" component={Profil} />
+						<Route exact path="/profile/:prenom" component={UserProfile} />
 					</Switch>
 				</MainStyle>
 			</Router>

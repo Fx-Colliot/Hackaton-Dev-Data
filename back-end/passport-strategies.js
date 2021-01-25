@@ -11,8 +11,8 @@ passport.use(
 			usernameField: "email",
 			passwordField: "password",
 		},
-		async (formMail, formPassword, done) => {
-			try {
+		 (formMail, formPassword, done) => {
+
 				const [
 					sqlRes,
 				] = await db.query(
@@ -26,10 +26,8 @@ passport.use(
 
 				const user = { id, email, nom, prenom };
 				return done(null, user);
-			} catch (e) {
-				console.log(e);
-				return done(e);
-			}
+
+			
 		}
 	)
 );

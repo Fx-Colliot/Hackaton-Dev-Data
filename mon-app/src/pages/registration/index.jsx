@@ -23,12 +23,15 @@ const Registration = () => {
 	const signup = (formData) => {
 		const technos = selected.map((skill) => skill.label).join(", ");
 		axios
-			.post("http://localhost:5050/user", { ...formData, technos: technos })
+			.post("http://localhost:${backPort}/user", {
+				...formData,
+				technos: technos,
+			})
 			.then(({ data }) => {
 				setDataSend(true);
 			})
 			.catch((err) => {
-				console.log("Meh");
+				console.log("Error to register profile");
 			});
 	};
 

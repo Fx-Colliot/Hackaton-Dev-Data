@@ -8,7 +8,7 @@ export default function Cards() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:5050/cards/")
+			.get("http://localhost:${backPort}/cards/")
 			.then(function (response) {
 				setCompanys(response.data);
 			})

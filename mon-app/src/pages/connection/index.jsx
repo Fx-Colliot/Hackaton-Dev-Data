@@ -18,7 +18,7 @@ const Connection = () => {
 
 	const signup = (formData) => {
 		axios
-			.post("http://localhost:5050/profile", formData)
+			.post("http://localhost:${backPort}/profile", formData)
 			.then(({ data }) => {
 				console.log("Profile created");
 				setDataSend(true);
