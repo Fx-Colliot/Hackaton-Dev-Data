@@ -31,7 +31,7 @@ export default function Profil() {
 				<h3>Expérience :</h3>
 				<p>{profil.anneesDeCode}</p>
 			</Informations>
-			<p>Vos préférencess</p>
+			<p>Vos préférences</p>
 			<Preferences>
 				<h3>Contrat :</h3>
 				<p>{profil.typeContrat}</p>
