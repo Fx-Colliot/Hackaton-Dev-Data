@@ -1,5 +1,5 @@
 const express = require("express");
-const { backPort } = require("./config");
+const { db, backPort } = require("./config");
 const passport = require("passport");
 
 const app = express();
@@ -9,8 +9,8 @@ app.use(cors());
 
 /* --- Routes --- */
 
-app.listen(5050, () => {
-	console.log("Server is runing !");
+app.listen(backPort, () => {
+	console.log(`API root available at: http://localhost:${backPort}/`);
 });
 
 //HomePage
@@ -100,8 +100,4 @@ app.use((req, res) => {
 	const msg = `Page not found: ${req.url}`;
 	console.warn(msg);
 	res.status(404).send(msg);
-});
-
-app.listen(backPort, () => {
-	console.log(`API root available at: http://localhost:${backPort}/`);
 });
