@@ -1,10 +1,10 @@
-const mysql = require("mysql2");
 require("dotenv").config();
+const mysql = require("mysql2/promise");
 
 const {
 	DB_HOST,
 	DB_USER,
-	DB_PASS,
+	DB_PASSWORD,
 	DB_DATABASE,
 	BACK_PORT,
 	JWT_SALTROUNDS,
@@ -15,13 +15,13 @@ const db = mysql.createPool({
 	connectionLimit: 10,
 	host: DB_HOST,
 	user: DB_USER,
-	password: DB_PASS,
 	database: DB_DATABASE,
+	password: DB_PASSWORD,
 });
 
 module.exports = {
 	db,
-	backPort: BACK_PORT,
+	port: BACK_PORT,
 	jwt_rounds: parseInt(JWT_SALTROUNDS),
 	jwt_secret: JWT_SECRET,
 };

@@ -11,23 +11,25 @@ passport.use(
 			usernameField: "email",
 			passwordField: "password",
 		},
-		 (formMail, formPassword, done) => {
-
+		async (formMail, formPassword, done) => {
+			try {
 				const [
 					sqlRes,
 				] = await db.query(
-					`SELECT id, email, nom, prenom, password FROM candidats WHERE email=?`,
+					`SELECT id, email, password FROM candidats WHERE email=?`,
 					[formMail]
 				);
 				if (!sqlRes.length) return done(null, false);
-				const { id, email, nom, prenom, password } = sqlRes[0];
+				const { id, email, password } = sqlRes[0];
 				const isPasswordOK = bcrypt.compareSync(formPassword, password);
-				if (!isPasswordOK) return done(null, false, "Wrong password!");
+				if (!isPasswordOK) return done(null, false, "Mauvais mot de passe!");
 
-				const user = { id, email, nom, prenom };
+				const user = { id, email };
 				return done(null, user);
-
-			
+			} catch (e) {
+				console.log(e);
+				return done(e);
+			}
 		}
 	)
 );
